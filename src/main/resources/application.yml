@@ -1,0 +1,4 @@
+
+server:
+  error:
+    include-stacktrace: on-param # hiding the errors on return. Only show if we set param as ?trace=true
