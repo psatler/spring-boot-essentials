@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +38,11 @@ public class AnimeController {
   @GetMapping(path = "/{id}")
   public ResponseEntity<Anime> findById(@PathVariable long id) {
     return ResponseEntity.ok(animeService.findById(id));
+  }
+
+  @PostMapping
+  public ResponseEntity<Anime> save(@RequestBody Anime anime) {
+    // Jackson already maps the json properties to the class Anime so that we don't need to set the name in the animeService
+    return new ResponseEntity<>(animeService.save(anime), HttpStatus.CREATED);
   }
 }
