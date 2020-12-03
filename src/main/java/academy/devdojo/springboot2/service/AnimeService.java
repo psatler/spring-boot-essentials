@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import academy.devdojo.springboot2.domain.Anime;
+import academy.devdojo.springboot2.mapper.AnimeMapper;
 import academy.devdojo.springboot2.repository.AnimeRepository;
 import academy.devdojo.springboot2.requests.AnimePostRequestBody;
 import academy.devdojo.springboot2.requests.AnimePutRequestBody;
@@ -29,7 +30,8 @@ public class AnimeService {
   }
 
   public Anime save(AnimePostRequestBody animePostRequestBody) {
-    Anime anime = Anime.builder().name(animePostRequestBody.getName()).build();
+    // Anime anime = Anime.builder().name(animePostRequestBody.getName()).build();
+    Anime anime = AnimeMapper.INSTANCE.toAnime(animePostRequestBody);
 
     return animeRepository.save(anime);
   }
@@ -39,12 +41,15 @@ public class AnimeService {
   }
 
   public void replace(AnimePutRequestBody animePutRequestBody) {
-    // making sure the element we are updating exists in the database first
-    Anime savedAnime = findByIdOrThrowBadRequestError(animePutRequestBody.getId());
-    Anime anime = Anime.builder()
-                    .id(savedAnime.getId())
-                    .name(animePutRequestBody.getName())
-                  .build();
+    // Anime savedAnime = findByIdOrThrowBadRequestError(animePutRequestBody.getId());
+    // Anime anime = Anime.builder()
+    //                 .id(savedAnime.getId())
+    //                 .name(animePutRequestBody.getName())
+    //               .build();
+
+    Anime savedAnime = findByIdOrThrowBadRequestError(animePutRequestBody.getId()); // making sure the element we are updating exists in the database first
+    Anime anime = AnimeMapper.INSTANCE.toAnime(animePutRequestBody);
+    anime.setId(savedAnime.getId());
               
     animeRepository.save(anime);
 
