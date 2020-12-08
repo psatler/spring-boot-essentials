@@ -3,6 +3,7 @@ package academy.devdojo.springboot2.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import academy.devdojo.springboot2.domain.Anime;
 import academy.devdojo.springboot2.exception.BadRequestException;
@@ -30,6 +31,7 @@ public class AnimeService {
             .orElseThrow(() -> new BadRequestException("Anime not found"));
   }
 
+  @Transactional
   public Anime save(AnimePostRequestBody animePostRequestBody) {
     // Anime anime = Anime.builder().name(animePostRequestBody.getName()).build();
     Anime anime = AnimeMapper.INSTANCE.toAnime(animePostRequestBody);
