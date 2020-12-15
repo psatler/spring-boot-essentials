@@ -12,4 +12,10 @@ spring:
   # every time we start our application, our database gets updated by the command below
     hibernate:
       ddl-auto: update
-    show-sql: true
+    # show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
