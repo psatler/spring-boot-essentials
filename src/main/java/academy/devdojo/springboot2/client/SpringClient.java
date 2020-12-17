@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.apache.catalina.connector.Response;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -44,5 +47,27 @@ public class SpringClient {
       new ParameterizedTypeReference<List<Anime>>(){
       });
     log.info(exchange.getBody());
+
+
+    // POST
+    Anime kingdom = Anime.builder().name("kingdom").build();
+    Anime kingdomSaved = new RestTemplate().postForObject("http://localhost:8080/animes/",kingdom, Anime.class);
+    log.info("Saved animed {}", kingdomSaved);
+    
+    Anime samurai = Anime.builder().name("samurai").build();
+    ResponseEntity<Anime> samuraiSaved = new RestTemplate().exchange(
+      "http://localhost:8080/animes/",
+      HttpMethod.POST,
+      new HttpEntity<>(samurai, createHttpHeaders()),  
+      Anime.class
+    );
+    log.info("Saved animed {}", samuraiSaved);
+  }
+
+  private static HttpHeaders createHttpHeaders() {
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+    // httpHeaders.setBearerAuth(token);
+    return httpHeaders;
   }
 }
