@@ -1,5 +1,11 @@
 package academy.devdojo.springboot2.client;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.catalina.connector.Response;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,6 +20,8 @@ public class SpringClient {
     String url = "http://localhost:8080/animes/2";
     String urlWithPlaceholder = "http://localhost:8080/animes/{id}";
 
+    String urlListOfAnimes = "http://localhost:8080/animes/all";
+
     // returns the whole response with status code, etc
     ResponseEntity<Anime> entity = new RestTemplate().getForEntity(url, Anime.class);
 
@@ -26,5 +34,15 @@ public class SpringClient {
     // using placeholder variables instead of inserting them directly in the URL
     Anime object2 = new RestTemplate().getForObject(urlWithPlaceholder, Anime.class, 2);
     log.info(object2);
+
+    // the way shown below we are returning an Array of animes
+    Anime[] animes = new RestTemplate().getForObject(urlListOfAnimes, Anime[].class);
+    log.info(Arrays.toString(animes));
+
+    // returning a list of animes
+    ResponseEntity<List<Anime>> exchange = new RestTemplate().exchange(urlListOfAnimes, HttpMethod.GET, null, 
+      new ParameterizedTypeReference<List<Anime>>(){
+      });
+    log.info(exchange.getBody());
   }
 }
