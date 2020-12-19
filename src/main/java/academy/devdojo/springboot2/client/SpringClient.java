@@ -3,7 +3,6 @@ package academy.devdojo.springboot2.client;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
