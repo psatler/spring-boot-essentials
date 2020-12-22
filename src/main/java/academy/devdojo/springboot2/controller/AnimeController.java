@@ -23,7 +23,7 @@ import academy.devdojo.springboot2.domain.Anime;
 import academy.devdojo.springboot2.requests.AnimePostRequestBody;
 import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 import academy.devdojo.springboot2.service.AnimeService;
-import academy.devdojo.springboot2.util.DateUtil;
+// import academy.devdojo.springboot2.util.DateUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -32,13 +32,13 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor // all final methods are injected in the constructor
 public class AnimeController {
-  private final DateUtil dateUtil;
+  // private final DateUtil dateUtil;
   private final AnimeService animeService;
   
   @GetMapping
   public ResponseEntity<Page<Anime>> list(Pageable pageable) {
     log.info("Testing");
-    log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+    // log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
 
     return new ResponseEntity<>(animeService.listAll(pageable), HttpStatus.OK);
   }

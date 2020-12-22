@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import academy.devdojo.springboot2.domain.Anime;
+import academy.devdojo.springboot2.util.AnimeCreator;
 
 
 @DataJpaTest
@@ -23,7 +24,7 @@ public class AnimeRepositoryTest {
   @Test
   @DisplayName("Save persists anime when successfull")
   void save_PersistAnime_WhenSuccessfull() {
-    Anime animeToBeSaved = createAnime();
+    Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
     Anime animeSaved = this.animeRepository.save(animeToBeSaved);
     
@@ -38,7 +39,7 @@ public class AnimeRepositoryTest {
   @Test
   @DisplayName("Save updates anime when successfull")
   void save_UpdatesAnime_WhenSuccessfull() {
-    Anime animeToBeSaved = createAnime();
+    Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
     Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -55,7 +56,7 @@ public class AnimeRepositoryTest {
   @Test
   @DisplayName("Delete removes anime when successfull")
   void delete_RemovesAnime_WhenSuccessfull() {
-    Anime animeToBeSaved = createAnime();
+    Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
     Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -69,7 +70,7 @@ public class AnimeRepositoryTest {
   @Test
   @DisplayName("Find by name returns list of anime when successfull")
   void findByName_ReturnsListOfAnime_WhenSuccessfull() {
-    Anime animeToBeSaved = createAnime();
+    Anime animeToBeSaved = AnimeCreator.createAnimeToBeSaved();
 
     Anime animeSaved = this.animeRepository.save(animeToBeSaved);
 
@@ -108,9 +109,4 @@ public class AnimeRepositoryTest {
   }
   
 
-  private Anime createAnime() {
-    return Anime.builder()
-            .name("Dragon Ball Z")
-            .build();
-  }
 }
