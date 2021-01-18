@@ -16,6 +16,14 @@ import lombok.extern.log4j.Log4j2;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   
+  // there exists other filters, such as UsernamePasswordAuthenticationFilter
+
+  // class that generation default login page => DefaultLoginPageGeneratingFilter
+  // class that generation default logout page => DefaultLogoutPageGeneratingFilter
+
+  /**
+   * BasicAuthenticationFilter
+   */
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
@@ -24,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
           .anyRequest()
           .authenticated()
+          .and()
+          .formLogin()
           .and()
           .httpBasic();
   }
