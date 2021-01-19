@@ -59,6 +59,7 @@ public class AnimeController {
   
   // just duplicating last endpoint so that we don't need to create new tests because of the new argument added
   @GetMapping(path = "by-id/{id}")
+  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<Anime> findByIdAuthenticationPrincipal(
     @PathVariable long id,
     @AuthenticationPrincipal UserDetails userDetails
