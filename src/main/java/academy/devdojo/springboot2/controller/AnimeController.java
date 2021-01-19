@@ -76,7 +76,6 @@ public class AnimeController {
   }
 
   @PostMapping
-  @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody) {
     // Jackson already maps the json properties to the class Anime so that we don't need to set the name in the animeService
     return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
