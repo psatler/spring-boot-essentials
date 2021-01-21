@@ -19,3 +19,14 @@ logging:
     org:
       hibernate:
         SQL: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics
+
+info:
+  app: Spring Boot 2 Essetials
+  website: https://devdojo.academy/
+  github: https://github.com/psatler/spring-boot-essentials
