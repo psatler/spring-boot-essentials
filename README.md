@@ -15,6 +15,9 @@ docker-compose up
 If you, like me, use DBeaver for browsing the database, you might get this _Public Key Retrieval is not allowed_ error, which can be solved at [this link](https://stackoverflow.com/questions/50379839/connection-java-mysql-public-key-retrieval-is-not-allowed).
 
 
+In the [prometheus.yml](src/main/resources/prometheus.yml) file you need to modify the IP in the `static_configs`, line 27, to the IP of the machine you are running this application on. I used this on a Linux machine (Ubuntu 18.04)
+
+
 #### Installing dependencies
 
 ```
@@ -39,7 +42,8 @@ An example user you can use is
 
 
 
-#### Running integration tests only
+
+## Running integration tests only
 
 You can run the integration test profile created by using the command below
 
