@@ -24,5 +24,5 @@ scrape_configs:
     scrape_interval: 5s
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ['192.168.0.13:8080'] # 192.168.0.13 is the IPv4 address of my machine, and 8080 is the port which Spring Boot is running on
+      - targets: ['192.168.0.11:8080'] # 192.168.0.13 is the IPv4 address of my machine, and 8080 is the port which Spring Boot is running on
       # - targets: ['localhost:8080'] # 8080 is the port which Spring Boot is running on
