@@ -11,5 +11,15 @@ services:
     volumes:
       - devdojo_data:/var/lib/mysql
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml" # mapping the prometheus config created to the container
+    command: # when the container is created, run this command setting up the config file mapped above
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+
 volumes:
   devdojo_data:
