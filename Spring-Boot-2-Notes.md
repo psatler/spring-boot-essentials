@@ -8,8 +8,12 @@ Ctrl + Alt + O (Intellij) -> Formata o codigo
 
 ## Table of Contents
 
+<details>
+<summary>Clique para exibir sumário</summary>
+<br>
+
 * [Class 03](#class-03)
-* [Class 04 - @Component, @Autowired, @SpringBootApplication](#class-04)
+* [Class 04 - @Component, @Autowired, @SpringBootApplication](#class-04---component-autowired-springbootapplication)
 * [Class 05 - Hot Swap com Spring Boot Devtools](#class-05---hot-swap-com-spring-boot-devtools)
 * [Class 06 - Gerando projeto com start.spring.io](#class-06---gerando-projeto-com-startspringio)
 * [Class 07 - GET parte 1](#class-07---get-parte-1)
@@ -57,7 +61,7 @@ Ctrl + Alt + O (Intellij) -> Formata o codigo
 * [Class 50 - Monitorando métricas com gráficos no Grafana](#class-50---monitorando-métricas-com-gráficos-no-grafana)
 * [Class 51 - Criado imagem com jib e executando via docker-compose](#class-51---criado-imagem-com-jib-e-executando-via-docker-compose)
 
-
+</details>
 
 
 ## Class 03 
