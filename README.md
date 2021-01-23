@@ -1,16 +1,29 @@
 # Spring Boot Essentials
-
+> Spring Boot app showcasing several features of Spring and also using cool tools such as Prometheus and Grafana, all set up with Docker
 
 
 ### How to run
 
-#### Docker 
+The container for this application with all services can be found on _Docker Hub_
+at [https://hub.docker.com/r/psatler/springboot2-essentials](https://hub.docker.com/r/psatler/springboot2-essentials).
 
-Getting the MySQL database up using docker
+You can also follow the steps below to run this application:
 
 ```
+git clone https://github.com/psatler/spring-boot-essentials.git
+
+cd spring-boot-essentials
+
 docker-compose up
 ```
+
+- _Main application_: accessed on `http://localhost:8080`
+- _Prometheus_: accessed on `http://localhost:9090`
+- _Grafana_: accessed on `http://localhost:3000`
+  - at grafana's login page, the credentials are:
+    - username: admin
+    - password: admin
+
 
 If you, like me, use DBeaver for browsing the database, you might get this _Public Key Retrieval is not allowed_ error, which can be solved at [this link](https://stackoverflow.com/questions/50379839/connection-java-mysql-public-key-retrieval-is-not-allowed).
 
@@ -39,7 +52,6 @@ An example user you can use is
 - user role:
   - username: devdojo2
   - password: devdojo-pass
-
 
 
 
