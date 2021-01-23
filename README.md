@@ -20,6 +20,9 @@ cd spring-boot-essentials
 docker-compose up
 ```
 
+This project has authentication enabled. You can authentication yourself by accessing the
+ `http://localhost:8080/login` endpoint. Two example accounts are shown at the [protected endpoints](#protected-endpoints) section below. To logout of the application, just access `http://localhost:8080/logout`.
+
 - _Main application_: accessed on `http://localhost:8080`
   - you can find the swagger on `http://localhost:8080/swagger-ui.html`
 - _Prometheus_: accessed on `http://localhost:9090`
@@ -44,6 +47,8 @@ java -jar target/springboot2-essentials-0.0.1-SNAPSHOT.jar
 ```
 
 #### Protected endpoints
+
+
 
 All endpoints but the ones starting with `/actuator/` (for example, `/actuator/info`) are protected by some sort of basic authentication. The security configuration can be found at [SecurityConfig](src/main/java/academy/devdojo/springboot2/config/SecurityConfig.java) class.
 
