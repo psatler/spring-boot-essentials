@@ -1,38 +1,69 @@
 
 # Anotações feitas a partir dos vídeos da playlist [Spring Boot 2 Essentials](https://youtube.com/playlist?list=PL62G310vn6nFBIxp6ZwGnm8xMcGE3VA5H)
+> Portuguese version 
 
 
 Ctrl + Alt + O (Intellij) -> Formata o codigo
 
 
-<!-- ## Table of Contents
+## Table of Contents
 
-* [Upcoming Features](#upcoming-features)
-* [Quickstart](#quickstart)
-  * [Setup](#setup)
-  * [Configuration](#configuration)
-  * [Build your image](#build-your-image)
-    * [Build to Docker Daemon](#build-to-docker-daemon)
-    * [Build an image tarball](#build-an-image-tarball)
-  * [Bind to a lifecycle](#bind-to-a-lifecycle)
-  * [Additional Build Artifacts](#additional-build-artifacts)
-* [Multi Module Projects](#multi-module-projects)
-* [Extended Usage](#extended-usage)
-  * [System Properties](#system-properties)
-  * [Example](#example)
-  * [Adding Arbitrary Files to the Image](#adding-arbitrary-files-to-the-image)
-  * [Authentication Methods](#authentication-methods)
-    * [Using Docker Credential Helpers](#using-docker-credential-helpers)
-    * [Using Specific Credentials](#using-specific-credentials)
-  * [WAR Projects](#war-projects)
-  * [Skaffold Integration](#skaffold-integration)
-* [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
-* [Community](#community) -->
+* [Class 03](#class-03)
+* [Class 04 - @Component, @Autowired, @SpringBootApplication](#class-04)
+* [Class 05 - Hot Swap com Spring Boot Devtools](#class-05---hot-swap-com-spring-boot-devtools)
+* [Class 06 - Gerando projeto com start.spring.io](#class-06---gerando-projeto-com-startspringio)
+* [Class 07 - GET parte 1](#class-07---get-parte-1)
+* [Class 08 - GET parte 2](#class-08---get-parte-2)
+* [Class 09 - POST](#class-09---post)
+* [Class 10 - DELETE](#class-10---delete)
+* [Class 11 - PUT](#class-11---put)
+* [Class 12 - Docker e MySQL](#class-12---docker-e-mysql)
+* [Class 14 - Spring Data JPA pt 2](#class-14---spring-data-jpa-pt-2)
+* [Class 15 - Framework de Mapeamento MapStruct](#class-15---framework-de-mapeamento-mapstruct)
+* [Class 16 - Request Params](#class-16---request-params)
+* [Class 17 - Exceções Customizadas](#class-17---exceções-customizadas)
+* [Class 18 - Handler Global](#class-18---handler-global)
+* [Class 19 - Transações](#class-19---transações)
+* [Class 20 - Validação de campos](#class-20---validação-de-campos)
+* [Class 21 - Handler para validação de campos](#class-21---handler-para-validação-de-campos)
+* [Class 22 - Sobrescrevendo handler do Spring](#class-22---sobrescrevendo-handler-do-spring)
+* [Class 23 - Paginação](#class-23---paginação)
+* [Class 24 - WebMvcConfigurer](#class-24---webmvcconfigurer)
+* [Class 25 - Sorting, Log SQL](#class-25---sorting-log-sql)
+* [Class 26 - RestTemplate getForObject e getForEntity](#class-26---resttemplate-getforobject-e-getforentity)
+* [Class 27 - RestTemplate exchange](#class-27---resttemplate-exchange)
+* [Class 28 - RestTemplate POST](#class-28---resttemplate-post)
+* [Class 29 - RestTemplate PUT and DELETE](#class-29---resttemplate-put-and-delete)
+* [Class 30 - Spring Data JPA Test pt 01](#class-30---spring-data-jpa-test-pt-01)
+* [Class 31 - Spring Data JPA Test pt 02](#class-31---spring-data-jpa-test-pt-02)
+* [Class 32 - Spring Data JPA Test pt 03 - Exceções](#class-32---spring-data-jpa-test-pt-03---exceções)
+* [Class 33 - Unit Tests pt 01](#class-33---unit-tests-pt-01)
+* [Class 34 - Unit Tests pt 02](#class-34---unit-tests-pt-02)
+* [Class 35 - Unit Tests pt 03](#class-35---unit-tests-pt-03)
+* [Class 36 - Testes de Integração pt 01](#class-36---testes-de-integração-pt-01)
+* [Class 37 - Testes de Integração pt 02](#class-37---testes-de-integração-pt-02)
+* [Class 38 - Maven Profile Para Testes de Integração](#class-38---maven-profile-para-testes-de-integração)
+* [Class 39 - Spring Security pt 01 - Autenticação em memória](#class-39---spring-security-pt-01---autenticação-em-memória)
+* [Class 40 - Spring Security pt 01 - CSRF Token](#class-40---spring-security-pt-01---csrf-token)
+* [Class 41 - Spring Security pt 02 - Segurança a nível de métodos com PreAuthori](#class-41---spring-security-pt-02---segurança-a-nível-de-métodos-com-preauthori)
+* [Class 42 - Spring Security pt 03 - Authentication Principal e página padrão de login do próprio Spring](#class-42---spring-security-pt-03---authentication-principal-e-página-padrão-de-login-do-próprio-spring)
+* [Class 43 - Spring Security pt 04 - Autenticação com usuário no banco de dados](#class-43---spring-security-pt-04---autenticação-com-usuário-no-banco-de-dados)
+* [Class 44 - Spring Security pt 05 - Proteção de URL com Antmatcher](#class-44---spring-security-pt-05---proteção-de-url-com-antmatcher)
+* [Class 45 - Spring Security pt 06 - Testes de Integração com Spring Security](#class-45---spring-security-pt-06---testes-de-integração-com-spring-security)
+* [Class 46 - Documentação com SpringDoc OpenAPI pt 01](#class-46---documentação-com-springdoc-openapi-pt-01)
+* [Class 47 - Documentação com SpringDoc OpenAPI pt 02](#class-47---documentação-com-springdoc-openapi-pt-02)
+* [Class 48 - Spring Boot Actuator](#class-48---spring-boot-actuator)
+* [Class 49 - Monitorando aplicação com prometheus](#class-49---monitorando-aplicação-com-prometheus)
+* [Class 50 - Monitorando métricas com gráficos no Grafana](#class-50---monitorando-métricas-com-gráficos-no-grafana)
+* [Class 51 - Criado imagem com jib e executando via docker-compose](#class-51---criado-imagem-com-jib-e-executando-via-docker-compose)
 
 
-## Class 03
 
-@ComponentScan -> Anotação que faz uma especie de mapping para buscar o pacote de inicio da aplicacao
+
+## Class 03 
+
+
+`@ComponentScan` -> Anotação que faz uma especie de mapping para buscar o pacote de inicio da aplicacao
 
 ```java
 @ComponentScan(basePackages = "<package.name>")
@@ -45,7 +76,10 @@ A forma mostrada acima é no caso que a classe de inicialização não está na 
 "No Serializer found": normalmente quando dá este erro significa que foi esquecido de colocar o get ou set.
 
 
-## Class 04
+[back to top](#table-of-contents)
+
+## Class 04 - @Component, @Autowired, @SpringBootApplication
+
 
 Quando se cria uma classe onde queremos que ela seja injetada diretamente no Spring (utilizando o `@Autowired`), 
 devemos usar alguma das anotações que vai transformar a classe em um Spring Bean. Algumas são:
@@ -69,9 +103,12 @@ Dica: normalmente o Spring gerencia a versao das dependencias, então baste adic
 `@SpringBootApplication` - agrupa varias das demais anotações citadas acima, como `@EnableAutoConfiguration`, `@ComponentScan`, `@Configuration`, etc
 
 
+[back to top](#table-of-contents)
+
 ## Class 05 - Hot Swap com Spring Boot Devtools
 
 
+[back to top](#table-of-contents)
 
 ## Class 06 - Gerando projeto com start.spring.io
 
@@ -93,12 +130,13 @@ java8 (vscode extension) - v0.64.1
 - [Java alternatives](https://askubuntu.com/questions/315646/update-java-alternatives-vs-update-alternatives-config-java)
 - Instalar extensões do vscode para Java, Lombok, etc
 
+[back to top](#table-of-contents)
 
 ## Class 07 - GET parte 1
 
 - normalmente o nome no `RequestMapping` é declarado no plural. Então ficaria:
 
-```
+```java
 @RequestMapping("animes")
 ``` 
 
@@ -108,8 +146,8 @@ Normalmente é a classe responsável pela regra de negócio.
 
 
 
-@Data - no lombok, gera todos os get, set, equal, hashcode
-@AllArgsConstructor - gera um construtor com todos os atributos
+- `@Data` - no lombok, gera todos os get, set, equal, hashcode
+- `@AllArgsConstructor` - gera um construtor com todos os atributos
 
 ```java
 import lombok.AllArgsConstructor;
@@ -132,6 +170,7 @@ Separandos as responsabilidades:
 - service: onde ficará a lógica de negócios
 
 
+[back to top](#table-of-contents)
 
 ## Class 08 - GET parte 2
 
@@ -148,6 +187,7 @@ server:
 So, to display the errors we add `http://localhost:8080/animes/3?trace=true`
 
 
+[back to top](#table-of-contents)
 
 ## Class 09 - POST
 
@@ -175,6 +215,7 @@ public class Anime {
 ```
 
 
+[back to top](#table-of-contents)
 
 ## Class 10 - DELETE
 
@@ -189,9 +230,11 @@ Devemos ficar ligados no quesito de Idempotencia quando estivermos construindo a
 Ou seja, os métodos GET, PUT e DELETE devem ser idempotentes. Em outras palavras, eles não alteram
 o estado do servidor dado a mesma requisição sendo executada.
 
+[back to top](#table-of-contents)
 
 ## Class 11 - PUT
 
+[back to top](#table-of-contents)
 
 ## Class 12 - Docker e MySQL
 
@@ -247,6 +290,7 @@ public class Anime {
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 14 - Spring Data JPA pt 2
 
@@ -300,6 +344,7 @@ Anime anime = Anime.builder()
 
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 15 - Framework de Mapeamento MapStruct
 
@@ -375,6 +420,7 @@ public abstract class AnimeMapper {
 
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 16 - Request Params
 
@@ -410,6 +456,8 @@ Podemos deixar o _RequestParam_ não obrigatório também, usando _required_ fal
 findByName(@RequestParam(required = false) String name)
 ```
 
+[back to top](#table-of-contents)
+
 ## Class 17 - Exceções Customizadas
 
 Criamos um pacote/diretório chamado `exception`.
@@ -441,6 +489,7 @@ public Anime findByIdOrThrowBadRequestError(long id) {
   }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 18 - Handler Global
 
@@ -489,6 +538,7 @@ public class RestExceptionHandler {
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 19 - Transações
 
@@ -517,6 +567,7 @@ da seguinte maneira:
 @Transactional(rollbackFor = Exception.class)
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 20 - Validação de campos
 
@@ -592,6 +643,8 @@ O erro é retorno e gerenciado pelo proprio Spring e um exemplo de resposta de e
   "path": "/animes"
 }
 ```
+
+[back to top](#table-of-contents)
 
 ## Class 21 - Handler para validação de campos
 
@@ -685,6 +738,7 @@ E um exemplo de resposta do handler mostrando os dois campos a mais, de _fields_
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 22 - Sobrescrevendo handler do Spring
 
@@ -754,6 +808,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 23 - Paginação
 
@@ -857,6 +912,7 @@ O retorno do _pageable_ é semelhante JSON ao mostrado abaixo:
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 24 - WebMvcConfigurer
 
@@ -945,6 +1001,7 @@ modificar a request passando o _size_ no endpoint paginado:
 http://localhost:8080/animes?size=21
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 25 - Sorting, Log SQL
 
@@ -989,6 +1046,7 @@ logging:                        <----
         SQL: DEBUG              <----
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 26 - RestTemplate getForObject e getForEntity
 
@@ -1020,6 +1078,7 @@ public class SpringClient {
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 27 - RestTemplate exchange
 
@@ -1052,6 +1111,7 @@ Abaixo é mostrada a sintaxe do método _exchange_.
 Ou seja, com o _getForObject_ teríamos um _Array_ e com o _exchange_ temos
 uma lista.
 
+[back to top](#table-of-contents)
 
 ## Class 28 - RestTemplate POST
 
@@ -1086,6 +1146,8 @@ Abaixo é mostrado com o _postForObject_ e o _exchange_.
   }
 ```
 
+[back to top](#table-of-contents)
+
 ## Class 29 - RestTemplate PUT and DELETE
 
 O rest template possui os métodos PUT e DELETE, porém, ambos retornam `void` e na maioria das
@@ -1119,7 +1181,7 @@ Abaixo temos alguns exemplos:
 
 No DELETE, o id esperado na URL é passado como último parâmetro do método `exchange`.
 
-
+[back to top](#table-of-contents)
 
 ## Class 30 - Spring Data JPA Test pt 01
 
@@ -1185,6 +1247,7 @@ public class AnimeRepositoryTest {
 Após executar o teste, é feito o `Rollback` da transação.
 
 
+[back to top](#table-of-contents)
 
 ## Class 31 - Spring Data JPA Test pt 02
 
@@ -1215,6 +1278,8 @@ Mais exemplos de testes do repositório JPA com "edge cases", por exemplo, quand
     Assertions.assertThat(animes).isEmpty();
   }
 ```
+
+[back to top](#table-of-contents)
 
 ## Class 32 - Spring Data JPA Test pt 03 - Exceções
 
@@ -1247,6 +1312,7 @@ Vamos agora fazer asserções de exceções. Elas podem ser executadas de duas f
   }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 33 - Unit Tests pt 01
 
@@ -1314,6 +1380,8 @@ public class AnimeControllerTests {
   }
 }
 ```
+
+[back to top](#table-of-contents)
 
 ## Class 34 - Unit Tests pt 02
 
@@ -1405,6 +1473,8 @@ Abaixo o teste do método `replace`, que retorna `null`.
   }
 ```
 
+[back to top](#table-of-contents)
+
 ## Class 35 - Unit Tests pt 03
 
 Vamos agora criar os testes unitários para o serviço.
@@ -1439,6 +1509,7 @@ Abaixo, é mostrado um exemplo de teste lançando uma exceção:
   }
 ```
  
+[back to top](#table-of-contents)
 
 ## Class 36 - Testes de Integração pt 01
 
@@ -1509,7 +1580,7 @@ public class AnimeControllerIT {
 Como pode ser visto, os testes de integração iniciam o servidor como um todo, iniciando o banco em memória também.
 
 
-
+[back to top](#table-of-contents)
 
 ## Class 37 - Testes de Integração pt 02
 
@@ -1549,7 +1620,7 @@ ele deve considerar que o contexto esteja "sujo". Dessa forma, o Spring vai delt
 
 Os testes de integração por padrão são mais lentos, por isso é recomendado deixá-los em uma pasta/pacote separado, de forma que possam todos serem executados à parte dos testes unitários.
 
-
+[back to top](#table-of-contents)
 
 ## Class 38 - Maven Profile Para Testes de Integração
 
@@ -1592,6 +1663,7 @@ Para executar o _profile_ dos testes de integração, utizamos o comando abaixo,
 mvn test -Pintegration-tests
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 39 - Spring Security pt 01 - Autenticação em memória
 
@@ -1668,6 +1740,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 40 - Spring Security pt 01 - CSRF Token
 
@@ -1709,6 +1782,7 @@ No curso, o CSRF ficará desabilitado, mas em produção isso não deve acontece
   }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 41 - Spring Security pt 02 - Segurança a nível de métodos com PreAuthori
 
@@ -1745,6 +1819,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 42 - Spring Security pt 03 - Authentication Principal e página padrão de login do próprio Spring
 
@@ -1799,6 +1874,7 @@ Na configuração de segurança, pode-se utilizar outros filtros
 		- autenticação (Authentication)
 		- autorização (Authorization)
 
+[back to top](#table-of-contents)
 
 ## Class 43 - Spring Security pt 04 - Autenticação com usuário no banco de dados
 
@@ -1886,6 +1962,7 @@ tipos de providers, ou seja, pode-se querer obter o usuário tanto do banco de d
 
 Ou seja, agora temos dois pontos de entrada de usuários: do InMemory e do banco MySQL (por meio do _devDojoUserDetailsService_).
 
+[back to top](#table-of-contents)
 
 ## Class 44 - Spring Security pt 05 - Proteção de URL com Antmatcher
 
@@ -1940,6 +2017,7 @@ outros endpoints que não estejam no padrão dos _matchers_ e ainda assim deseja
 que o usuário só possa acessar se estiver autenticado.
 
 
+[back to top](#table-of-contents)
 
 ## Class 45 - Spring Security pt 06 - Testes de Integração com Spring Security
 
@@ -2116,6 +2194,7 @@ realizar o _delete_.
 
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 46 - Documentação com SpringDoc OpenAPI pt 01
 
@@ -2209,6 +2288,7 @@ No endpoint com `Pageable`, podemos utilizar a anotação `@ParameterObject` (ve
   }
 ```
 
+[back to top](#table-of-contents)
 
 ## Class 47 - Documentação com SpringDoc OpenAPI pt 02
 
@@ -2261,6 +2341,7 @@ Podemos também fornecer mais informações relacionadas à resposta do endpoint
 **Dica:** Se modificarmos a url de `/swagger-ui.html` para `/v3/api-docs` (ou seja, algo como `http://localhost:8080/v3/api-docs`), teremos acesso à especificação em json
 gerado pelo swagger.
 
+[back to top](#table-of-contents)
 
 ## Class 48 - Spring Boot Actuator
 
@@ -2353,6 +2434,7 @@ management:
 Os endpoints abaixo dos indicados acima, por exemplo, `/actuator/metrics/process.uptime` também ficam expostos.
 
 
+[back to top](#table-of-contents)
 
 ## Class 49 - Monitorando aplicação com prometheus
 
@@ -2467,6 +2549,7 @@ Na página que aparece, se acessarmos o caminho `status -> targets`, podemos vis
 Para visualizarmos os gráficos, na aba `Graph` podemos selecionar a métrica desejada.
 
 
+[back to top](#table-of-contents)
 
 ## Class 50 - Monitorando métricas com gráficos no Grafana
 
@@ -2553,6 +2636,7 @@ spring:
 - na aplicação do Grafana, vamos em `+` e selecionamos `import`, inserido o ID copiado, e então clicamos em `Load`.
 - neste ponto o _dashboard_ do _JVM Micrometer_ deve ser apresentado.
 
+[back to top](#table-of-contents)
 
 ## Class 51 - Criado imagem com jib e executando via docker-compose
 
@@ -2728,3 +2812,4 @@ mvn jib:build
 Ao fim da execução do comando acima, a imagem estará publicada no Docker Hub.
 
 
+[back to top](#table-of-contents)
