@@ -5,6 +5,30 @@
 Ctrl + Alt + O (Intellij) -> Formata o codigo
 
 
+<!-- ## Table of Contents
+
+* [Upcoming Features](#upcoming-features)
+* [Quickstart](#quickstart)
+  * [Setup](#setup)
+  * [Configuration](#configuration)
+  * [Build your image](#build-your-image)
+    * [Build to Docker Daemon](#build-to-docker-daemon)
+    * [Build an image tarball](#build-an-image-tarball)
+  * [Bind to a lifecycle](#bind-to-a-lifecycle)
+  * [Additional Build Artifacts](#additional-build-artifacts)
+* [Multi Module Projects](#multi-module-projects)
+* [Extended Usage](#extended-usage)
+  * [System Properties](#system-properties)
+  * [Example](#example)
+  * [Adding Arbitrary Files to the Image](#adding-arbitrary-files-to-the-image)
+  * [Authentication Methods](#authentication-methods)
+    * [Using Docker Credential Helpers](#using-docker-credential-helpers)
+    * [Using Specific Credentials](#using-specific-credentials)
+  * [WAR Projects](#war-projects)
+  * [Skaffold Integration](#skaffold-integration)
+* [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+* [Community](#community) -->
+
 
 ## Class 03
 
